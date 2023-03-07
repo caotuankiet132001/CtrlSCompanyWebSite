@@ -1,0 +1,125 @@
+﻿
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Công ty TNHH CTRL - S</title>
+    <link rel="stylesheet" href="~/Content/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link href="~/fontawesome-free-6.1.1-web/fontawesome-free-6.1.1-web/css/all.css" rel="stylesheet">
+    <link href="./your-path-to-fontawesome/css/brands.css" rel="stylesheet">
+    <link href="./your-path-to-fontawesome/css/solid.css" rel="stylesheet">
+    <script src="~/Content/script.js"></script>
+    <style>
+        .home_blog {
+            display: flex;
+            background: url("~/Content/Image/blog.jpg") no-repeat center;
+            height: 100vh;
+            color: #fff;
+            min-height: 500px;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Fz Albula',sans-serif;
+        }
+
+            .home_blog .max-width1 {
+                width: 100%;
+                display: flex;
+            }
+
+                .home_blog .max-width1 .row {
+                    margin-right: 0;
+                }
+
+            .home_blog .home-content-blog .text-1 {
+                font-size: 27px;
+            }
+
+            .home_blog .home-content-blog .text-2 {
+                font-size: 75px;
+                font-weight: 600;
+                margin-left: -3px;
+            }
+
+            .home_blog .home-content-blog .text-3 {
+                font-size: 40px;
+                margin: 5px 0;
+            }
+
+                .home_blog .home-content-blog .text-3 span {
+                    color: crimson;
+                    font-weight: 500;
+                }
+
+            .home_blog .home-content-blog a {
+                display: inline-block;
+                background: crimson;
+                color: #fff;
+                font-size: 25px;
+                padding: 12px 36px;
+                margin-top: 20px;
+                font-weight: 400;
+                border-radius: 6px;
+                border: 2px solid crimson;
+                transition: all 0.3s ease;
+            }
+
+                .home_blog .home-content-blog a:hover {
+                    color: crimson;
+                    background: none;
+                }
+
+        .title-1 {
+            font-family: 'Fz Albula';
+            text-align: center;
+        }
+        .blog
+        {
+            margin-bottom:10px;
+        }
+        .blog h1 {
+            margin-top: 50px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-size: 40px;
+            text-align: center;
+            font-family: 'Fz Albula';
+        }
+
+        .blog p {
+            font-family: 'Fz Albula';
+            font-size: 15px;
+            width: 1250px;
+            margin-left: 150px;
+        }
+    </style>
+</head>
+<body>
+    @Html.Partial("Layout")
+    <div class="scroll-up-btn">
+        <i class="fas fa-angle-up"></i>
+    </div>
+    <!-- home section start -->
+   
+    <section class="home_blog" id="home_blog">
+        <div class="max-width1">
+            <div class="home-content-blog">
+
+            </div>
+        </div>
+    </section>
+    <div class="blog">
+        <h1>CTRL-S ĐỒNG HÀNH CÙNG LIÊN MINH HUYỀN THOẠI 2022</h1>
+        <p>
+            Duis ex ad cupidatat tempor Excepteur cillum cupidatat fugiat nostrud cupidatat dolor sunt sint sit nisi est eu exercitation incididunt adipisicing veniam velit id fugiat enim mollit amet anim veniam dolor dolor irure velit commodo cillum sit nulla ullamco magna amet magna cupidatat qui labore cillum sit in tempor veniam consequat non laborum adipisicing aliqua ea nisi sint.
+
+            Duis ex ad cupidatat tempor Excepteur cillum cupidatat fugiat nostrud cupidatat dolor sunt sint sit nisi est eu exercitation incididunt adipisicing veniam velit id fugiat enim mollit amet anim veniam dolor dolor irure velit commodo cillum sit nulla ullamco magna amet magna cupidatat qui labore cillum sit in tempor veniam consequat non laborum adipisicing aliqua ea nisi sint ut quis proident ullamco ut dolore culpa occaecat ut laboris in sit minim cupidatat ut dolor voluptate enim veniam consequat occaecat fugiat in adipisicing in amet Ut nulla nisi non ut enim aliqua laborum mollit quis nostrud sed sed.
+        </p>
+        <img style=" display: block; margin-left: auto; margin-right: auto; width: 500px; " src="~/Content/Image/blog.jpg" />
+    </div>
+</body>
+@Html.Partial("footer")

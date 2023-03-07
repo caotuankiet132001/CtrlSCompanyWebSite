@@ -1,0 +1,110 @@
+﻿@model CtrlS.Models.Contact
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout_admin.cshtml";
+}
+
+<head>
+    <style>
+        .dl-horizontal {
+            font-size: 15px;
+            margin-left: 500px;
+            margin-top: 50px;
+        }
+
+        .btn:not(:disabled):not(.disabled) {
+            margin-left: 700px;
+            margin-top: 10px;
+            font-family: 'Varela Round', sans-serif;
+            font-size: 15px;
+        }
+
+            .btn:not(:disabled):not(.disabled):hover {
+                color: white;
+                background-color: darkred;
+            }
+        #content {
+            width: 500px;
+            overflow-wrap: break-word;
+         
+        
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align:center; color:darkred; font-weight: bold; margin-top:40px; font-size:40px;">XÓA THÔNG TIN</h2>
+    <div>
+
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayName("Họ và tên")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Email")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Tựa đề")
+            </dt>
+
+            <dd id="content">
+                @Html.DisplayFor(model => model.Subject)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Nội dung")
+            </dt>
+
+            <dd id="content">
+                @Html.DisplayFor(model => model.Message)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Số điện thoại")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Ngày và tháng")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateTime)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Tình trạng")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+
+        </dl>
+        <input type="submit" value="Delete" class="btn btn-default" />
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color" style="margin-left: 550px; font-family: 'Varela Round', sans-serif; font-size:15px;">
+
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>

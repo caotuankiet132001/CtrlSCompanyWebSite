@@ -1,0 +1,260 @@
+body {
+    height: auto;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+.container{
+    width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.container .about .max-width img{
+    width: 100%;
+}
+
+
+
+.max-width {
+    max-width: 1440px;
+    padding: 0 80px;
+    margin-left: auto;
+    margin-right:auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/*Client style */
+.client .max-width{
+    display: flex;
+    flex-direction: column;
+}
+.client_title{
+    font-size: 40px;
+    text-align: center;
+    color: darkred;
+    padding-top: 40px;
+}
+
+.client_content{
+    flex-wrap: wrap;
+    display: flex;
+    margin-left:auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+
+}
+.client_content_item{
+    display: flex;
+    margin: 2%;
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0.5px solid darkred;
+    box-shadow: 1px 2px 3px black;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+}
+
+.client_content_item .item1{
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    
+}
+.client_content_item .item1 img{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50px;
+    height: auto;
+}
+.client_content_item .item2{
+    width: 70%;
+    
+    display: flex;
+    align-self: end;
+    margin: auto;
+    justify-content: center;
+}
+.client_content_item .item2 h1{
+    text-align: center;
+}
+
+/* Talent style */
+
+.talent{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+}
+.talent_title{
+    font-size: 40px;
+    text-align: center;
+    color: darkred;
+    padding-top: 40px;
+}
+.talent_content{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+
+    display: flex;
+
+    /*this centers the text horizontally*/
+    justify-content: center;
+  
+    /*this centers the text vertically*/
+    align-items: center;
+}
+.talent_content_item{
+    width: 200px;
+    height: 300px;
+    background-color: darkgray;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin: 2%;
+    position: relative;
+}
+.talent_content_item .item1{
+    width: 100%;
+    height: auto;
+}
+.talent_content_item .item1 img{
+    width: 100%;
+    border-radius: 20px;
+    height: auto;
+}
+.talent_content_item .item2{
+    width: 100%;
+    height: 50%;
+}
+.talent_content_item .item2 h1{
+    text-align: center;
+    top: 20%;
+    position:relative;
+}
+/* laptop */
+@media screen and (max-width: 1439px)
+{
+    .max-width {
+        width: 1024px;
+    }
+    .container{
+        width: 1024px;
+    }
+
+}
+
+/* tablet */
+@media screen and (max-width: 1024px)
+{
+    .max-width {
+        width: 768px;
+    }
+    .container{
+        width: 768px;
+    }
+}
+/* mobile */
+@media screen and (max-width: 768px)
+{
+    .max-width {
+        width: 425px;
+    }
+    .container{
+        width: 425px;
+    }
+    
+    /* style client */
+    .client_title{
+        font-size: 20px;
+    }
+.client_content_item{
+    display: flex;
+    margin: 2%;
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0.5px solid darkred;
+    box-shadow: 1px 2px 3px black;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+    .client_content_item .item2 h1{
+        font-size: 10px;
+    }
+    .client_content_item .item1 img{
+        width: 20px;
+    }
+
+    /* style talent */
+    .talent_title{
+        font-size: 20px;
+        text-align: center;
+        color: darkred;
+        padding-top: 40px;
+    }
+    .talent_content{
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: auto;
+        margin-right: auto;
+    
+        display: flex;
+    
+        /*this centers the text horizontally*/
+        justify-content: center;
+      
+        /*this centers the text vertically*/
+        align-items: center;
+    }
+    .talent_content_item{
+        width: 100px;
+        height: 150px;
+        background-color: darkgray;
+        border: 1px solid black;
+        border-radius: 10px;
+        margin: 2%;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .talent_content_item .item1{
+        width: 100%;
+        height: 50%;
+    }
+    .talent_content_item .item1 img{
+        width: 100%;
+        border-radius: 10px;
+        height: auto;
+    }
+    .talent_content_item .item2{
+        width: 100%;
+        height: 50%;
+    }
+    .talent_content_item .item2 h1{
+        text-align: center;
+        font-size: 20px;
+        top: 20%;
+        position:relative;
+    }
+
+
+}

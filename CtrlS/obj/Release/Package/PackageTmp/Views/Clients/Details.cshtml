@@ -1,0 +1,62 @@
+﻿@model CtrlS.Models.Client
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout_admin.cshtml";
+}
+
+<head>
+    <style>
+        body {
+            font-size: 15px;
+        }
+
+        dl, ol, ul {
+            margin-left: 500px;
+            margin-top: 50px;
+        }
+
+        textarea {
+            width: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center; color:darkred; font-weight: bold; margin-top:40px; font-size:40px;">CHI TIẾT CLIENT </h2>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+
+
+            <dt>
+                @Html.DisplayName("Tên Client")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Hình ảnh")
+            </dt>
+
+            <dd style="width:500px;overflow-y:scroll; height:150px;">
+                @Html.DisplayFor(model => model.Img)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Ngày Tạo")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateTime)
+            </dd>
+
+        </dl>
+    </div>
+    <p style="margin-left:700px;margin-top:30px; color:darkred">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>

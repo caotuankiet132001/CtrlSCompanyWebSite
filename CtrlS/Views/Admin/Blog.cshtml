@@ -1,0 +1,147 @@
+﻿@{
+
+    ViewBag.Title = "Blog";
+
+
+}
+<head>
+    <style>
+
+        h2 {
+            font-weight: bold;
+            color: darkred;
+            margin-top: 30px;
+            margin-bottom:30px;
+        }
+
+        #thembtn {
+            color:black;
+        }
+
+            #thembtn:hover {
+                color: gray;
+            }
+
+        .themtour {
+            text-align: center;
+            padding-left: 23px;
+            color: white;
+            text-decoration: none;
+            background-color: darkslategrey;
+        }
+
+            .themtour:hover {
+                color: gray;
+                text-decoration: none;
+            }
+
+        #search1 {
+            background-color: black;
+            color: white;
+        }
+
+            #search1:hover {
+                background-color: white;
+                color: black;
+            }
+
+        #searchby {
+            margin-top: 3px;
+            margin-left: 10px;
+        }
+
+        table {
+            margin-top: 30px;
+        }
+
+        .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+            padding: 8px;
+            line-height: 1.42857143;
+            vertical-align: top;
+        }
+
+        #btnbtn {
+            width: 100px;
+        }
+
+        #btnbtn1 {
+            margin-top: 10px;
+            background-color: white;
+            color: darkred;
+            border:1px solid ;
+            margin-bottom:-20px;
+        }
+
+        .btnbtn1:hover {
+            color: white;
+            background-color:darkred;
+        }
+
+            #blog
+            {
+                margin-left:250px;
+            }
+            td p
+            {
+               margin-left:50px;
+            }
+        #nut {
+            color: darkred;
+            font-family: 'Varela Round', sans-serif;
+
+        }
+    </style>
+</head>
+<body>
+    @Html.Partial("Admin_Layout")
+    <div id="blog">
+
+        <h2>BLOG <i class="fas fa-user-edit"></i> </h2>
+
+
+
+
+        <a href="#"><i class="fa-solid fa-plus"></i> Thêm</a>
+
+
+        <table class="table">
+            <tr>
+                <th style="width:200px">TÊN BLOG</th>
+                <th style="width:200px">MÔ TẢ</th>
+                <th style="width:200px">SỐ NGÀY</th>
+                <th style="width:200px">Hình ảnh</th>
+
+
+            </tr>
+
+
+            <tr>
+                <td>
+                    <p>Tên blog</p>
+                </td>
+                <td>
+                    <p>Mô tả</p>
+                </td>
+                <td>
+                    <p> Ngày đăng</p>
+                </td>
+
+                <td>
+                    <img style="width:100px;height:100px; margin-left:50px;" src="#" />
+                </td>
+                <td id="btnbtn">
+                    <a href="#" id="nut">Sửa</a><br>
+                    <a href="#" id="nut">Chi tiết</a><br>
+                    <a href="#" id="nut">Xóa</a>
+
+                </td>
+            </tr>
+
+
+        </table>
+        <div style="display:inline">
+
+        </div>
+    </div>
+    
+</body>

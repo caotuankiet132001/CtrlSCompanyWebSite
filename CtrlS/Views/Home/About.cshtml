@@ -1,0 +1,135 @@
+﻿@using CtrlS.Models
+@model dynamic
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="~/Content/AboutStyle.css">
+    <link rel="stylesheet" href="~/Content/SlideBannerScrollEvent.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Công ty TNHH CTRL - S</title>
+</head>
+<body>
+        <div class="container">
+            <div class="about">
+                <div class="max-width">
+                    <img src="~/Content/Image/About/CtrlS-Profile-2.jpg" />
+                </div>
+            </div>
+            <div class="client">
+                <div class="max-width">
+                    <div class="client_title">
+                        <h2>MY CLIENT</h2>
+                    </div>
+                    <div class="client_content">
+                        @foreach (Client item in Model.Clients)
+                        {
+                            <div class="client_content_item">
+                                <div class="item1">
+                                    <center><img class="center" src="/Content/Image/Clients/@item.ImgName" /></center>
+                                </div>
+                                <div class="item2">
+                                    <h1>@Html.DisplayFor(modelItem => item.Name)</h1>
+                                </div>
+                         
+
+
+
+                            </div>
+                        }
+                </div>
+            </div>
+            <div class="talent">
+                <div class="max-width">
+                    <div class="talent_title">
+                        <h2>MY TALENT</h2>
+                    </div>
+                    <div class="talent_content">
+                        @foreach (Talent item in Model.Talents)
+                        {
+                            <div class="talent_content_item">
+
+                                <div class="item1">
+                                    <center><img src="/Content/Image/Talents/@item.ImgName" /></center>
+                                </div>
+                                <div class="item2">
+                                    <h1 style="color:darkred">@Html.DisplayFor(modelitem => item.Role)</h1>
+                                    <h1>@Html.DisplayFor(modelItem => item.Name)</h1>
+                                </div>
+                            </div>
+                        }
+                </div>
+            </div>
+            <div class="show">
+                <div class="max-width">
+                    <img src="~/Content/Image/About/CtrlS-Profile-8.jpg" />
+                    <img src="~/Content/Image/About/CtrlS-Profile-9.jpg" />
+                    <img src="~/Content/Image/About/CtrlS-Profile-10.jpg" />
+                    <img src="~/Content/Image/About/CtrlS-Profile-11.jpg" />
+                    <img src="~/Content/Image/About/CtrlS-Profile-12.jpg" />
+                    <img src="~/Content/Image/About/CtrlS-Profile-13.jpg" />
+                    <img src="~/Content/Image/About/CtrlS-Profile-14.jpg" />
+                    <img src="~/Content/Image/About/CtrlS-Profile-15.jpg" />
+                    <img src="~/Content/Image/About/CtrlS-Profile-16.jpg" />
+                    <img src="~/Content/Image/About/CtrlS-Profile-17.jpg" />
+                    <img src="~/Content/Image/About/CtrlS-Profile-18.jpg" />
+                    <img src="~/Content/Image/About/CtrlS-Profile-19.jpg" />
+                </div>
+            </div>
+
+        </div>
+
+        @*</div>
+                <div class="Client max-width">
+                    <h2>MY CLIENT</h2>
+                    @foreach (Client item in Model.Clients)
+                    {
+                        <div class="item-client">
+                            <div class="item1">
+                                <img class="center" style="width:50px;height:auto;" src="/Content/Image/Clients/@item.ImgName" />
+                            </div>
+                            <div class="item2">
+                                <h1>@Html.DisplayFor(modelItem => item.Name) </h1>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+
+                <div class="Talent max-width">
+                    <h2>MY TALENTS</h2>
+                    <div class="Talent_Box">
+                        @foreach (Talent item in Model.Talents)
+                        {
+                            <div class="Talent_item">
+                                <div class="image">
+                                    <img class="center" style="max-width:100%; max-height:100%;" src="/Content/Image/Talents/@item.ImgName" />
+                                </div>
+                                <div class="title">
+                                    <h3> @Html.DisplayFor(modelitem => item.Role)</h3><h1>@Html.DisplayFor(modelItem => item.Name) </h1>
+                                </div>
+                            </div>
+
+
+                        }
+                    </div>
+                </div>
+                <div class="show max-width">
+                    <img src="~/Content/Image/About/CtrlS-Profile-8.jpg" />
+                    <img src="~/Content/Image/About/CtrlS-Profile-9.jpg" />
+                    <img src="~/Content/Image/About/CtrlS-Profile-10.jpg" />
+                    <img src="~/Content/Image/About/CtrlS-Profile-11.jpg" />
+                    <img src="~/Content/Image/About/CtrlS-Profile-12.jpg" />
+                    <img src="~/Content/Image/About/CtrlS-Profile-13.jpg" />
+                    <img src="~/Content/Image/About/CtrlS-Profile-14.jpg" />
+                    <img src="~/Content/Image/About/CtrlS-Profile-15.jpg" />
+                    <img src="~/Content/Image/About/CtrlS-Profile-16.jpg" />
+                    <img src="~/Content/Image/About/CtrlS-Profile-17.jpg" />
+                    <img src="~/Content/Image/About/CtrlS-Profile-18.jpg" />
+                    <img src="~/Content/Image/About/CtrlS-Profile-19.jpg" />
+                </div>
+
+            </div>*@
+    </body>
