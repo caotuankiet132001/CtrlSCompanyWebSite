@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CtrlS.Models.Blog>
+﻿@model IEnumerable<CtrlS.Models.Event>
 @{
     ViewBag.Title = "CtrlS";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -211,40 +211,36 @@
     </section>
 
     <!-- sự kiện section start -->
-    <h2 class="title" style="color: crimson ; font-size: 45px; margin-top: 30px;"><b>SỰ KIỆN</b></h2>
-    <div class="main">
+    <section class="event" id="event">
+        <h2 class="title" style="color: crimson ; font-size: 45px; margin-top: 30px;"><b>SỰ KIỆN</b></h2>
+        <div class="main">
 
-        <!--cards -->
-        @*@foreach (var item in Model)
-        {
-            <div class="card">
-                <div class="image">
-                    <img width="300px" ; height="300px;" src="~/Img/@item.ImgName" />
-                </div>
+            <!--cards -->
+            @*@foreach (var item in Model)
+            {
+                <div class="card">
+                    <div class="image">
+                        <img width="300px" ; height="300px;" src="~/Img/@item.ImgName" />
+                    </div>
 
-                <div class="title">
-                    <h1>@Html.DisplayFor(modelItem => item.Title)
+                    <div class="title">
+                        <h1>@Html.DisplayFor(modelItem => item.Title)
+                    </div>
+                    <div class="des" style="margin-bottom:10px;">
+                        <a href="#" style="color:darkred;">Xem thêm</a>
+                    </div>
                 </div>
-                <div class="des" style="margin-bottom:10px;">
-                    <a href="#" style="color:darkred;">Xem thêm</a>
-                </div>
+            }*@
+
+            <div class="photobanner">
+                <img class="first" style="width:0px; height:0px;" src="" />
+                @foreach (var item in Model)
+                {
+                    <img class="center" style="width:384px; height:216px;" src="~/Content/Image/Events/@item.ImgName" />
+                }
             </div>
-        }*@
-        <div class="photobanner">
-            <img class="first" style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-8.jpg" />
-            <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-9.jpg" />
-            <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-10.jpg" />
-            <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-11.jpg" />
-            <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-12.jpg" />
-            <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-13.jpg" />
-            <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-14.jpg" />
-            <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-15.jpg" />
-            <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-16.jpg" />
-            <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-17.jpg" />
-            <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-18.jpg" />
-            <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-19.jpg" />
         </div>
-    </div>
+    </section>
         <!-- contact section start -->
 
         <section class="contact" id="contact">
@@ -314,181 +310,7 @@
         </section>
     </div>
 
-    <!-- home section start -->
-    <!--<section class="home" id="home">
-        <div class="max-width">
-            <div class="home-content">
 
-            </div>
-        </div>
-    </section>-->
-    <!-- about section start -->
-    @*<section class="about" id="about">
-            <div class="max-width">
-                <h2 class="title" style="color: crimson ;"><b>THÔNG TIN</b></h2>
-                <div class="about-content">
-                    <div class="column left">
-                        <img src="~/Content/Image/about.jpg" alt="">
-                    </div>
-                    <div class="column right">
-                        <div class="text" style="font-weight:bold;">Công ty TNHH Ctrl-S  <span class="typing-2"></span></div>
-                        <p>Được thành lập vào ngày 10/03/2021, địa chỉ hiện tại của công ty ở 1590/14 Phạm Thế Hiển Quận 8, TP.HCM. </p>
-                        <p>Công ty kinh doanh trong 2 lĩnh vực</p>
-                        <p>1/ Tổ chức cho thuê trang thiết bị sự kiện</p>
-                        <p>2/ Tư vấn, thiết kế, xây dựng nhà ở</p>
-                       @Html.ActionLink("Xem thêm", "About", "Home")
-                    </div>
-                </div>
-            </div>
-        </section>*@
-
-    <!-- services section start -->
-    <!--<section class="services" id="services">
-        <div class="max-width">
-            <h2 class="title">Dịch vụ</h2>
-            <div class="serv-content">
-                <div class="card1">
-                    <div class="box">
-                        <i class="fa-solid fa-1"></i>
-                        <div class="text">Tổ chức sự kiện</div>
-                        <p>Mang lại sự hài lòng tuyệt đối với khách hàng</p>
-                    </div>
-                </div>
-                <div class="card1">
-                    <div class="box">
-                        <i class="fa-solid fa-computer"></i>
-                        <div class="text"> Thiết bị</div>
-                        <p>Cho thuê các trang thiết bị hiện đại, ổn định</p>
-                    </div>
-                </div>
-                <div class="card1">
-                    <div class="box">
-                        <i class="fa-solid fa-file-pen"></i>
-                        <div class="text"> Tư vấn</div>
-                        <p>Tư vấn, thiết kế, xây dựng nhà ở theo yêu cầu</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>-->
-    <!-- sự kiện section start -->
-    <!--<h2 class="title" style="color: crimson ; font-size: 45px; margin-top: 30px;"><b>SỰ KIỆN</b></h2>
-    <div class="main">
-        <section class="event" id="event" style="padding:unset">-->
-    <!--cards -->-->
-    <!--@*@foreach (var item in Model)
-        {
-            <div class="card">
-                <div class="image">
-                    <img width="300px" ; height="300px;" src="~/Img/@item.ImgName" />
-                </div>
-
-                <div class="title">
-                    <h1>@Html.DisplayFor(modelItem => item.Title)
-                </div>
-                <div class="des" style="margin-bottom:10px;">
-
-                    <a href="#" style="color:darkred;">Xem Thêm</a>
-                </div>
-            </div>
-        }*@-->
-    <!-- Each image is 350px by 233px -->
-    <!--<div class="photobanner">
-                <img class="first" style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-8.jpg" />
-                <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-9.jpg" />
-                <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-10.jpg" />
-                <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-11.jpg" />
-                <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-12.jpg" />
-                <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-13.jpg" />
-                <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-14.jpg" />
-                <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-15.jpg" />
-                <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-16.jpg" />
-                <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-17.jpg" />
-                <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-18.jpg" />
-                <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-19.jpg" />
-            </div>
-        </div>
-
-
-
-
-
-    </section>-->
-    <!-- contact section start -->
-    @*<section class="contact" id="contact">
-        <div class="max-width">
-            <h2 class="title">Contact me</h2>
-            <div class="contact-content">
-                <div class="column left">
-                    <div class="text">Get in Touch</div>
-                    <p>Lưu trữ giá trị của bạn, liên hệ ngay để nhận báo giá ngay tại đây!</p>
-                    <div class="icons">
-                        <div class="row">
-                            <i class="fas fa-user"></i>
-                            <div class="info">
-                                <div class="head">Name</div>
-                                <div class="sub-title">Trương Phan Quốc Bảo</div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div class="info">
-                                <div class="head">Address</div>
-                                <div class="sub-title">1590/14 Phạm Thế Hiển Quận 8, TP.HCM</div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <i class="fas fa-envelope"></i>
-                            <div class="info">
-                                <div class="head">Email</div>
-                                <div class="sub-title">CtrlScompany@gmail.com</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>*@
-
-
-
-
-
-
-
-    @*<div class="column right">
-            <div class="text">Nhận tư vấn</div>
-            @using (Html.BeginForm("Create", "Contacts", FormMethod.Post))
-            {
-                <form action="#">
-                    <div class="fields">
-                        <div class="field name">
-                            <input type="text" name="Name" placeholder="Name" required>
-                        </div>
-                        <div class="field email">
-                            <input type="email" name="Email" placeholder="Email" required>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <input type="text" name="Subject" placeholder="Subject" required>
-                    </div>
-                    <div class="field textarea">
-                        <textarea cols="30" rows="10" name="Message" placeholder="Message.." required></textarea>
-                    </div>
-                    <div class="field">
-                        <input type="text" name="PhoneNumber" placeholder="Number" required>
-                    </div>
-                    <div class="button-area">
-                        <button type="submit">Gửi</button>
-                    </div>
-                </form>
-            }
-        </div>*@
-
-    @*</div>
-
-                </div>
-            </section>
-
-
-        </div>*@
 </body>
 
 @Html.Partial("footer")

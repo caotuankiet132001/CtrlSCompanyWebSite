@@ -19,8 +19,8 @@ namespace CtrlS.Controllers
         private CtrlSDbContext db = new CtrlSDbContext();
         public ActionResult Index()
         {
-            var blogs = db.Blogs.Where(m=>m.Status != 0).ToList();
-            return View(blogs);
+            var @event = db.Events.Where(m=>m.Status != 0).ToList();
+            return View(@event);
         }
         public ActionResult Blog()
         {
@@ -32,12 +32,12 @@ namespace CtrlS.Controllers
         }
         private List<Client> GetClients()
         {
-            List<Client> clients = db.Clients.ToList();
+            List<Client> clients = db.Clients.Where(m => m.Status != 0).ToList();
             return clients;
         }
         private List<Talent> GetTalents()
         {
-            List<Talent> talents = db.Talents.ToList();
+            List<Talent> talents = db.Talents.Where(m => m.Status != 0).ToList();
             return talents;
         }
         public ActionResult About()

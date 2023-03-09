@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -13,82 +12,78 @@ using CtrlS.Models;
 
 namespace CtrlS.Controllers
 {
-    public class TalentsController : Controller
+    public class EventsController : Controller
     {
         private CtrlSDbContext db = new CtrlSDbContext();
-
-        // GET: Talents
         [CustomAuthorize("Admin")]
         public ActionResult Status(int id)
         {
-
-            Talent talent = db.Talents.Find(id);
-            int status = (talent.Status == 1) ? 0 : 1;
-            talent.Status = status;
-            db.Entry(talent).State = EntityState.Modified;
+            Event @event = db.Events.Find(id);
+            int status = (@event.Status == 1) ? 0 : 1;
+            @event.Status = status;
+            db.Entry(@event).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index", "Talents");
+            return RedirectToAction("Index", "Events");
         }
-        [CustomAuthorize("Admin")]
 
+        [CustomAuthorize("Admin")]
+        // GET: Events
         public ActionResult Index()
         {
-            return View(db.Talents.ToList());
+            return View(db.Events.ToList());
         }
         [CustomAuthorize("Admin")]
-
-        // GET: Talents/Details/5
+        // GET: Events/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Talent talent = db.Talents.Find(id);
-            if (talent == null)
+            Event @event = db.Events.Find(id);
+            if (@event == null)
             {
                 return HttpNotFound();
             }
-            return View(talent);
+            return View(@event);
         }
         [CustomAuthorize("Admin")]
-
-        // GET: Talents/Create
+        // GET: Events/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Talents/Create
+        // POST: Events/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
         [CustomAuthorize("Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(string Name, string Role, HttpPostedFileBase file)
+        public ActionResult Create(string Content, HttpPostedFileBase file)
         {
             string _FileName = Path.GetFileName(file.FileName);
-            string _path = Path.Combine(Server.MapPath("~/Content/Image/Talents/"), _FileName);
+            string _path = Path.Combine(Server.MapPath("~/Content/Image/Events/"), _FileName);
             file.SaveAs(_path);
-            Talent talents = new Talent();
+            Event events = new Event();
             var allowedExtensions = new[] { ".Jpg", ".png", ".jpg", "jpeg" };
-            talents.Status = 0;
-            talents.Role = Role;
-            talents.Name = Name;
-            talents.Img = file.ToString();
+            events.Status = 0;
+            events.Content = Content;
+            events.Img = file.ToString();
             var fileName = Path.GetFileName(file.FileName);
             var ext = Path.GetExtension(file.FileName);
             if (allowedExtensions.Contains(ext))
             {
                 string name = Path.GetFileNameWithoutExtension(fileName);
-                string myfile = name + "_" + talents.Id + ext;
-                var path = Path.Combine(Server.MapPath("~/Content/Image/Talents/"), myfile);
-                talents.Img = path;
-                talents.ImgName = fileName.ToString();
-                talents.DateTime = DateTime.Now;
-                talents.DateTime2 = DateTime.Now;
-                talents.file = Path.Combine(Server.MapPath("~/Content/Image/Talents/"), Path.GetFileName(file.FileName));
-                db.Talents.Add(talents);
+                string myfile = name + "_" + events.Id + ext;
+                var path = Path.Combine(Server.MapPath("~/Content/Image/Events/"), myfile);
+                events.Img = path;
+                events.ImgName = fileName.ToString();
+                events.DateTime = DateTime.Now;
+                events.DateTime2 = DateTime.Now;
+                events.file = Path.Combine(Server.MapPath("~/Content/Image/Events/"), Path.GetFileName(file.FileName));
+                db.Events.Add(events);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -98,47 +93,63 @@ namespace CtrlS.Controllers
             }
             return View();
         }
-        [CustomAuthorize("Admin")]
 
-        // GET: Talents/Edit/5
+
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include = "Id,Content,Img,ImgName,DateTime,DateTime2,Status,file")] Event @event)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Events.Add(@event);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    return View(@event);
+        //}
+
+        // GET: Events/Edit/5
+        [CustomAuthorize("Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Talent talent = db.Talents.Find(id);
-            if (talent == null)
+            Event @event = db.Events.Find(id);
+            if (@event == null)
             {
                 return HttpNotFound();
             }
-            return View(talent);
+            return View(@event);
         }
-        [CustomAuthorize("Admin")]
 
-        // POST: Talents/Edit/5
+        // POST: Events/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [CustomAuthorize("Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Role,Img,ImgName,DateTime,DateTime2,Status")] Talent talent, HttpPostedFileBase file)
+        public ActionResult Edit([Bind(Include = "Id,Content,Img,ImgName,DateTime,DateTime2,Status,file")] Event @event, HttpPostedFileBase file)
         {
             if (file != null) //có cập nhật hình hay ko
             {
-                talent.Img = "";
+                @event.Img = "";
                 var allowedExtensions = new[] { ".Jpg", ".png", ".jpg", "jpeg" };
-                talent.Img = file.ToString(); //getting complete url  
+                @event.Img = file.ToString(); //getting complete url  
                 var fileName = Path.GetFileName(file.FileName); //getting only file name(ex-ganesh.jpg)  
                 var ext = Path.GetExtension(file.FileName); //getting the extension(ex-.jpg)  
                 if (allowedExtensions.Contains(ext)) //check what type of extension  
                 {
                     string name = Path.GetFileNameWithoutExtension(fileName); //getting file name without extension  
-                    string myfile = name + "_" + talent.Id + ext; //appending the name with id                                                           
-                    var path = Path.Combine(Server.MapPath("~/Content/Image/Talents/"), myfile); // store the file inside ~/project folder(Img)  
-                    talent.Img = path;
-                    talent.ImgName = fileName.ToString();
-                    talent.DateTime2 = DateTime.Now;
-                    db.Entry(talent).State = EntityState.Modified;
+                    string myfile = name + "_" + @event.Id + ext; //appending the name with id                                                           
+                    var path = Path.Combine(Server.MapPath("~/Content/Image/Events/"), myfile); // store the file inside ~/project folder(Img)  
+                    @event.Img = path;
+                    @event.ImgName = fileName.ToString();
+                    @event.DateTime2 = DateTime.Now;
+                    db.Entry(@event).State = EntityState.Modified;
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -146,44 +157,54 @@ namespace CtrlS.Controllers
                 {
                     ViewBag.message = "Please choose only Image file";
                 }
-                return View(talent);
+                return View(@event);
             }
             else
             {
-                talent.DateTime2 = DateTime.Now;
-                db.Entry(talent).State = EntityState.Modified;
+                @event.DateTime2 = DateTime.Now;
+                db.Entry(@event).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+
+
+
+            //if (ModelState.IsValid)
+            //{
+            //    db.Entry(@event).State = EntityState.Modified;
+            //    db.SaveChanges();
+            //    return RedirectToAction("Index");
+            //}
+            //return View(@event);
         }
-        [CustomAuthorize("Admin")]
-        // GET: Talents/Delete/5
+
+        // GET: Events/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Talent talent = db.Talents.Find(id);
-            if (talent == null)
+            Event @event = db.Events.Find(id);
+            if (@event == null)
             {
                 return HttpNotFound();
             }
-            return View(talent);
+            return View(@event);
         }
-        [CustomAuthorize("Admin")]
 
-        // POST: Talents/Delete/5
+        // POST: Events/Delete/5
+        [CustomAuthorize("Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Talent talent = db.Talents.Find(id);
-            db.Talents.Remove(talent);
+            Event @event = db.Events.Find(id);
+            db.Events.Remove(@event);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        [CustomAuthorize("Admin")]
 
         protected override void Dispose(bool disposing)
         {

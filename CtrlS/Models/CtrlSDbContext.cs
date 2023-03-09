@@ -21,5 +21,7 @@ namespace CtrlS.Models
         public System.Data.Entity.DbSet<CtrlS.Models.Client> Clients { get; set; }
 
         public System.Data.Entity.DbSet<CtrlS.Models.Talent> Talents { get; set; }
+
+        public System.Data.Entity.DbSet<CtrlS.Models.Event> Events { get; set; }
     }
 }
