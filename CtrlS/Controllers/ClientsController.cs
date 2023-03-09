@@ -55,6 +55,9 @@ namespace CtrlS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(string Name, HttpPostedFileBase file)
         {
+            string _FileName = Path.GetFileName(file.FileName);
+            string _path = Path.Combine(Server.MapPath("~/Content/Image/Clients/"), _FileName);
+            file.SaveAs(_path);
             Client clients = new Client();
             var allowedExtensions = new[] { ".Jpg", ".png", ".jpg", "jpeg" };
             clients.Status = 0;
@@ -66,11 +69,12 @@ namespace CtrlS.Controllers
             {
                 string name = Path.GetFileNameWithoutExtension(fileName);
                 string myfile = name + "_" + clients.Id + ext;
-                var path = Path.Combine(Server.MapPath("~/Img/Clients/"), myfile);
+                var path = Path.Combine(Server.MapPath("~/Content/Image/Clients/"), myfile);
                 clients.Img = path;
                 clients.ImgName = fileName.ToString();
                 clients.DateTime = DateTime.Now;
                 clients.DateTime2 = DateTime.Now;
+                clients.file = Path.Combine(Server.MapPath("~/Content/Image/Clients/"), myfile);
                 db.Clients.Add(clients);
                 db.SaveChanges();
                 return RedirectToAction("Index");

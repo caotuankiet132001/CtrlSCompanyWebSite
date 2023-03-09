@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -67,6 +68,9 @@ namespace CtrlS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(string Name, string Role, HttpPostedFileBase file)
         {
+            string _FileName = Path.GetFileName(file.FileName);
+            string _path = Path.Combine(Server.MapPath("~/Content/Image/Talents/"), _FileName);
+            file.SaveAs(_path);
             Talent talents = new Talent();
             var allowedExtensions = new[] { ".Jpg", ".png", ".jpg", "jpeg" };
             talents.Status = 0;
@@ -79,11 +83,12 @@ namespace CtrlS.Controllers
             {
                 string name = Path.GetFileNameWithoutExtension(fileName);
                 string myfile = name + "_" + talents.Id + ext;
-                var path = Path.Combine(Server.MapPath("~/Img/Talents/"), myfile);
+                var path = Path.Combine(Server.MapPath("~/Content/Image/Talents/"), myfile);
                 talents.Img = path;
                 talents.ImgName = fileName.ToString();
                 talents.DateTime = DateTime.Now;
                 talents.DateTime2 = DateTime.Now;
+                talents.file = Path.Combine(Server.MapPath("~/Content/Image/Talents/"), Path.GetFileName(file.FileName));
                 db.Talents.Add(talents);
                 db.SaveChanges();
                 return RedirectToAction("Index");

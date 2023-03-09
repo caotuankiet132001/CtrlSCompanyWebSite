@@ -17,6 +17,10 @@ namespace CtrlS.Models
         public DateTime DateTime { get; set; } //Ngày tạo blog
         public DateTime DateTime2 { get; set; } //Ngày Sửa blog gần nhất
         public int Status { get; set; }
+        [DataType(DataType.Upload)]
+        [Display(Name = "Upload File")]
+        [Required(ErrorMessage = "Please choose file to upload.")]
+        public string file { get; set; }
     }
 
 }
