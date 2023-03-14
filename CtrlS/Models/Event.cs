@@ -11,6 +11,7 @@ namespace CtrlS.Models
         [Key]
         public int Id { get; set; }
         public string Content { get; set; }
+        public string Type { get; set; }
         public string Img { get; set; } //Chứa đường dẫn
         public string ImgName { get; set; } //Chứa tên file hình
         public DateTime DateTime { get; set; } //Ngày tạo blog

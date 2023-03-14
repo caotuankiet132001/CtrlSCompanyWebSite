@@ -199,6 +199,19 @@
     <Content Include="Content\Image\Clients\taisei.png" />
     <Content Include="Content\Image\Clients\tc.jpg" />
     <Content Include="Content\Image\cover.jpg" />
+    <Content Include="Content\Image\Events\306167667_3300578520263839_6212668682505145945_n.jpg" />
+    <Content Include="Content\Image\Events\CtrlS-Profile-1.jpg" />
+    <Content Include="Content\Image\Events\CtrlS-Profile-10.jpg" />
+    <Content Include="Content\Image\Events\CtrlS-Profile-2.jpg" />
+    <Content Include="Content\Image\Events\CtrlS-Profile-3.jpg" />
+    <Content Include="Content\Image\Events\CtrlS-Profile-4.jpg" />
+    <Content Include="Content\Image\Events\CtrlS-Profile-5.jpg" />
+    <Content Include="Content\Image\Events\CtrlS-Profile-6.jpg" />
+    <Content Include="Content\Image\Events\CtrlS-Profile-7.jpg" />
+    <Content Include="Content\Image\Events\CtrlS-Profile-8.jpg" />
+    <Content Include="Content\Image\Events\CtrlS-Profile-9.jpg" />
+    <Content Include="Content\Image\Events\song.png" />
+    <Content Include="Content\Image\logo - Copy.png" />
     <Content Include="Content\Image\logo.png" />
     <Content Include="Content\Image\person.jpg" />
     <Content Include="Content\Image\pic1.jpg" />
@@ -2319,6 +2332,7 @@
     <Content Include="fontawesome-free-6.1.1-web\fontawesome-free-6.1.1-web\webfonts\fa-solid-900.woff2" />
     <Content Include="fontawesome-free-6.1.1-web\fontawesome-free-6.1.1-web\webfonts\fa-v4compatibility.ttf" />
     <Content Include="fontawesome-free-6.1.1-web\fontawesome-free-6.1.1-web\webfonts\fa-v4compatibility.woff2" />
+    <Content Include="Content\Homeslideshow.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2387,7 +2401,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Image\Events\" />
+    <Folder Include="Content\Image\Banners\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

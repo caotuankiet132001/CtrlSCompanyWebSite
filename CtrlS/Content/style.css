@@ -38,6 +38,7 @@ section {
     max-width: 1300px;
     padding: 0 80px;
     margin: auto;
+    position: relative;
 }
 
 .about, .services, .skills, .teams, .contact, footer {
@@ -88,10 +89,11 @@ section .title {
 
 /* navbar styling */
 .navbar {
+    background:crimson;
     position: fixed;
     width: 100%;
     z-index: 999;
-    padding: 30px 0;
+    padding: 15px 0;
     font-family: 'Fz Albula',sans-serif;
     transition: all 0.3s ease;
 }
@@ -106,13 +108,14 @@ section .title {
         align-items: center;
         justify-content: space-between;
     }
-
+    .navbar .logo img{
+        width: 120px;
+    }
     .navbar .logo a {
         color: #fff;
         font-size: 35px;
         font-weight: 600;
     }
-
         .navbar .logo a span {
             color: crimson;
             transition: all 0.3s ease;
@@ -121,10 +124,14 @@ section .title {
     .navbar.sticky .logo a span {
         color: #fff;
     }
-
+    .narbar .menu{
+        position: relative;
+        bottom: 0;
+    }
     .navbar .menu li {
         list-style: none;
         display: inline-block;
+
     }
 
         .navbar .menu li a {
@@ -186,13 +193,14 @@ section .title {
 /* home section styling */
 .home {
     display: flex;
-    background: url("./Image/cover.jpg") no-repeat center;
+    /*background: url("./Image/cover1.jpg") no-repeat center;*/
     height: 100vh;
     color: #fff;
     min-height: 500px;
     background-size: cover;
     background-attachment: fixed;
     font-family: 'Fz Albula',sans-serif;
+    position:relative;
 }
 
     .home .max-width {
@@ -569,6 +577,9 @@ footer {
     .max-width {
         padding: 0 50px;
     }
+    .navbar .logo img {
+        width: 100px;
+    }
 }
 
 @media (max-width: 947px) {
@@ -654,7 +665,9 @@ footer {
     .max-width {
         padding: 0 23px;
     }
-
+    .navbar .logo img {
+        width: 80px;
+    }
     .home .home-content .text-2 {
         font-size: 60px;
     }
@@ -682,7 +695,9 @@ footer {
         height: 20vh;
 
     }
-
+    .navbar .logo img {
+        width: 50px;
+    }
 
 
 
@@ -840,4 +855,101 @@ button {
 .title-1 {
     font-family: 'Fz Albula';
     text-align: center;
+}
+
+
+/*slide show css*/
+.mySlides {
+    display: none;
+}
+.mySlides1 {
+    display: none;
+}
+
+img {
+    vertical-align: middle;
+}
+
+/* Slideshow container */
+.slideshow-container {
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Caption text */
+.slideshow-container .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+.dot1 {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+.active {
+    background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+    .text {
+        font-size: 11px
+    }
+}
+
+.video{
+    justify-content:center;
+    align-items: center;
+}
+.video iframe{
+    width: 100%;
+    height: 500px;
 }

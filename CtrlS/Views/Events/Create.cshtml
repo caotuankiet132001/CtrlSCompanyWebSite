@@ -42,41 +42,65 @@
         .form-horizontal {
             width: 100%;
         }
+        .max-width{
+            width: 1300px;
+            justify-content:center;
+            align-items:center;
+            margin: auto;
+        }
     </style>
 </head>
 <body>
-    <h2 style="text-align:center; color:darkred; font-weight: bold; margin-top:40px; font-size:40px;">Thêm Event Mới </h2>
-    @Html.Raw(TempData["msg"])
-    @using (Html.BeginForm("Create", "Events", FormMethod.Post, new { @enctype = "multipart/form-data" }))
-    {
-        @Html.HiddenFor(model => model.DateTime)
-        @Html.HiddenFor(model => model.DateTime2)
-        @Html.HiddenFor(model => model.ImgName)
-        @Html.HiddenFor(model => model.Status)
-        @Html.AntiForgeryToken()
-        <div class="form-horizontal">
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-            <div class="form-group">
+    <div class="max-width">
+            <h2 style="text-align:center; color:darkred; font-weight: bold; margin-top:40px; font-size:40px;">Thêm Event Mới </h2>
+            @Html.Raw(TempData["msg"])
+            @using (Html.BeginForm("Create", "Events", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+            {
+                @Html.HiddenFor(model => model.DateTime)
+                @Html.HiddenFor(model => model.DateTime2)
+                @Html.HiddenFor(model => model.ImgName)
+                @Html.HiddenFor(model => model.Status)
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.Label("Nội dung", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-10" style="margin:auto">
+                            <label for="Type" style="font-size: 15px">Chọn loại ảnh:</label>
+                            <select name="Type" id="Type">
+                                <option value="event">Event</option>
+                                <option value="banner">Banner</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.TextBox("file", "", new { type = "file", multiple = "multiple", accept = "image/*" })
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }
 
-                @Html.Label("Nội dung", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.TextBox("file", "", new { type = "file", multiple = "multiple", accept = "image/*" })
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
+            <div style="margin-left: 550px; font-family: 'Varela Round', sans-serif; font-size:15px;">
+                @Html.ActionLink("Back to List", "Index")
             </div>
         </div>
-    }
 
-    <div style="margin-left: 550px; font-family: 'Varela Round', sans-serif; font-size:15px;">
-        @Html.ActionLink("Back to List", "Index")
-    </div>
+</body>
+
+
+
+
+
+

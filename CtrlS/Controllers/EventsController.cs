@@ -61,37 +61,75 @@ namespace CtrlS.Controllers
         [CustomAuthorize("Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(string Content, HttpPostedFileBase file)
+        public ActionResult Create(string Content, string Type, HttpPostedFileBase file)
         {
-            string _FileName = Path.GetFileName(file.FileName);
-            string _path = Path.Combine(Server.MapPath("~/Content/Image/Events/"), _FileName);
-            file.SaveAs(_path);
-            Event events = new Event();
-            var allowedExtensions = new[] { ".Jpg", ".png", ".jpg", "jpeg" };
-            events.Status = 0;
-            events.Content = Content;
-            events.Img = file.ToString();
-            var fileName = Path.GetFileName(file.FileName);
-            var ext = Path.GetExtension(file.FileName);
-            if (allowedExtensions.Contains(ext))
+            if(Type == "event")
             {
-                string name = Path.GetFileNameWithoutExtension(fileName);
-                string myfile = name + "_" + events.Id + ext;
-                var path = Path.Combine(Server.MapPath("~/Content/Image/Events/"), myfile);
-                events.Img = path;
-                events.ImgName = fileName.ToString();
-                events.DateTime = DateTime.Now;
-                events.DateTime2 = DateTime.Now;
-                events.file = Path.Combine(Server.MapPath("~/Content/Image/Events/"), Path.GetFileName(file.FileName));
-                db.Events.Add(events);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                string _FileName = Path.GetFileName(file.FileName);
+                string _path = Path.Combine(Server.MapPath("~/Content/Image/Events/"), _FileName);
+                file.SaveAs(_path);
+                Event events = new Event();
+                var allowedExtensions = new[] { ".Jpg", ".png", ".jpg", "jpeg" };
+                events.Status = 0;
+                events.Content = Content;
+                events.Img = file.ToString();
+                var fileName = Path.GetFileName(file.FileName);
+                var ext = Path.GetExtension(file.FileName);
+                if (allowedExtensions.Contains(ext))
+                {
+                    string name = Path.GetFileNameWithoutExtension(fileName);
+                    string myfile = name + "_" + events.Id + ext;
+                    var path = Path.Combine(Server.MapPath("~/Content/Image/Events/"), myfile);
+                    events.Img = path;
+                    events.ImgName = fileName.ToString();
+                    events.DateTime = DateTime.Now;
+                    events.DateTime2 = DateTime.Now;
+                    events.Type = Type;
+                    events.file = Path.Combine(Server.MapPath("~/Content/Image/Events/"), Path.GetFileName(file.FileName));
+                    db.Events.Add(events);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    TempData["msg"] = "<script>alert('Chỉ chấp nhận các định dạng sau: png, jpg, jpeg, Jpg');</script>";
+                }
+                return View();
             }
             else
             {
-                TempData["msg"] = "<script>alert('Chỉ chấp nhận các định dạng sau: png, jpg, jpeg, Jpg');</script>";
+                string _FileName = Path.GetFileName(file.FileName);
+                string _path = Path.Combine(Server.MapPath("~/Content/Image/Banners/"), _FileName);
+                file.SaveAs(_path);
+                Event events = new Event();
+                var allowedExtensions = new[] { ".Jpg", ".png", ".jpg", "jpeg" };
+                events.Status = 0;
+                events.Type = Type;
+                events.Content = Content;
+                events.Img = file.ToString();
+                var fileName = Path.GetFileName(file.FileName);
+                var ext = Path.GetExtension(file.FileName);
+                if (allowedExtensions.Contains(ext))
+                {
+                    string name = Path.GetFileNameWithoutExtension(fileName);
+                    string myfile = name + "_" + events.Id + ext;
+                    var path = Path.Combine(Server.MapPath("~/Content/Image/Banners/"), myfile);
+                    events.Img = path;
+                    events.ImgName = fileName.ToString();
+                    events.DateTime = DateTime.Now;
+                    events.DateTime2 = DateTime.Now;
+                    events.file = Path.Combine(Server.MapPath("~/Content/Image/Banners/"), Path.GetFileName(file.FileName));
+                    db.Events.Add(events);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    TempData["msg"] = "<script>alert('Chỉ chấp nhận các định dạng sau: png, jpg, jpeg, Jpg');</script>";
+                }
+                return View();
             }
-            return View();
+            
         }
 
 
