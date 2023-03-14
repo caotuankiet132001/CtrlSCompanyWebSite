@@ -1,10 +1,30 @@
-﻿body {
-    width: 1920px;
+﻿
+
+body {
     height: auto;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+}
+
+.container {
+    width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    .container .about .max-width img {
+        width: 100%;
+    }
+
+
+
+.max-width {
+    max-width: 1440px;
+    padding: 0 80px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 * {
@@ -18,202 +38,237 @@ html {
     scroll-behavior: smooth;
 }
 
-.container {
-    position: absolute;
-    width: 100%;
-    height: 1080px;
-    margin: 0;
-    padding: 0;
-}
-
-.about {
-    position: absolute;
+/*Client style */
+.client .max-width {
     display: flex;
-    background: url("Image/About/CtrlS-Profile-2.png");
-    background-size: cover;
-    background-attachment: fixed;
-    width: 100%;
-    height: 1080px;
+    flex-direction: column;
 }
 
-.about-text {
-    position: fixed;
-    padding-left: 10%;
-    width: 50%;
-    height: auto;
-    padding-top: 10%;
-}
-
-    .about-text h2 {
-        font-size: 65px;
-        font-weight: bold;
-        color: darkred;
-        font-family: 'Times New Roman';
-    }
-
-.Client {
-    top: 1080px;
-    position: absolute;
-    width: 100%;
-    height: 700px;
-    background-color: white;
-    margin: auto;
+.client_title {
+    font-size: 40px;
     text-align: center;
-    align-content: center;
+    color: darkred;
+    padding-top: 40px;
 }
 
-    .Client h2 {
-        padding-top: 20px;
-        font-size: 65px;
-        font-weight: bold;
-        color: darkred;
-        font-family: 'Times New Roman';
-        text-align: center;
-    }
+.client_content {
+    flex-wrap: wrap;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+}
 
-.item-client {
+.client_content_item {
+    display: flex;
     margin: 2%;
-    width: 20%;
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0.5px solid darkred;
+    box-shadow: 1px 2px 3px black;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
     height: 80px;
-    display: inline-flex;
-
 }
 
-.item1 img {
-    display: flex;
-    align-content:center;
-    justify-items:center;
-    width: 100px;
-    height: auto;
-}
-
-.item1 {
-    margin: auto;
-    width: 100px;
-    height: auto;
-    display: flex;
-    align-self: end;
-    margin: auto;
-}
-
-.item2 {
-    width: 70%;
-    display: flex;
-    margin: auto;
-}
-
-@media screen and (min-width: 1921px)
-{
-    .Client {
-        top: 1080px;
-        position: absolute;
-        width: 100%;
-        height: 700px;
-        background-color: white;
-        margin: auto;
-        text-align: center;
-        align-content: center;
+    .client_content_item .item1 {
+        width: 30%;
+        justify-content: center;
+        align-items: center;
     }
 
-        .Client h2 {
-            padding-top: 20px;
-            font-size: 150px;
-            font-weight: bold;
-            color: darkred;
-            font-family: 'Times New Roman';
-            text-align: center;
+        .client_content_item .item1 img {
+            margin-left: auto;
+            margin-right: auto;
+            width: 50px;
+            height: auto;
         }
 
-    .item-client {
-        margin: 2%;
-        width: 20%;
-        height: 80px;
-        display: inline-flex;
-    }
-
-    .item1 img {
-        display: flex;
-        align-content: center;
-        justify-items: center;
-        width: 300px;
-        height: auto;
-    }
-
-    .item1 {
-        margin: auto;
-        width: 300px;
-        height: auto;
+    .client_content_item .item2 {
+        width: 70%;
         display: flex;
         align-self: end;
         margin: auto;
+        justify-content: center;
     }
 
-    .item2 {
-        width: 70%;
-        display: flex;
-        margin: auto;
-        font-size: 100px;
-    }
-    .item2 h1{
-        width: 70%;
-        display: flex;
-        margin: auto;
-        font-size: 50px;
-    }
+        .client_content_item .item2 h1 {
+            text-align: center;
+        }
 
+/* Talent style */
 
+.talent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-.Talent {
-    top: 1780px;
-    position: absolute;
-    width: 100%;
-    height: 1500px;
-    background-color: white;
-    margin: auto;
+.talent_title {
+    font-size: 40px;
     text-align: center;
+    color: darkred;
+    padding-top: 40px;
+}
+
+.talent_content {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    /*this centers the text horizontally*/
+    justify-content: center;
+    /*this centers the text vertically*/
     align-items: center;
-    display:flex;
-    justify-content:center;
 }
 
-    .Talent h2 {
-        padding-top: 20px;
-        font-size: 65px;
-        font-weight: bold;
-        color: darkred;
-        font-family: 'Times New Roman';
-        text-align: center;
-    }
-
-    .Talent h1 {
-        padding-top: 10px;
-        font-size: 25px;
-        font-weight: bold;
-        color: darkred;
-        font-family: 'Times New Roman';
-        text-align: center;
-    }
-
-.image img {
-    border-radius: 50px;
-    max-width: 100%;
-    max-height: 100%;
-}
-
-.image {
-    border-radius: 50px;
+.talent_content_item {
+    width: 200px;
     height: 300px;
-    width: 300px;
+    border-radius: 20px;
+    margin: 2%;
+    position: relative;
 }
-.show{
-    width:100%;
-    height:auto;
-    position:absolute;
-    top: 2960px;
+
+    .talent_content_item .item1 {
+        width: 100%;
+        height: 50%;
+        overflow:hidden;
+        border-radius:20px
+    }
+
+        .talent_content_item .item1 img {
+            background-size:cover;
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 20px;
+            
+        }
+
+    .talent_content_item .item2 {
+        width: 100%;
+        height: 50%;
+    }
+
+        .talent_content_item .item2 h1 {
+            text-align: center;
+            top: 20%;
+            position: relative;
+        }
+/* laptop */
+@media screen and (max-width: 1439px) {
+    .max-width {
+        width: 1024px;
+    }
+
+    .container {
+        width: 1024px;
+    }
 }
-.show img{
-    width: 100%;
-    height: auto;
-    background-size: cover;
+
+/* tablet */
+@media screen and (max-width: 1024px) {
+    .max-width {
+        width: 768px;
+    }
+
+    .container {
+        width: 768px;
+    }
+}
+/* mobile */
+@media screen and (max-width: 768px) {
+    .max-width {
+        width: 425px;
+    }
+
+    .container {
+        width: 425px;
+    }
+
+    /* style client */
+    .client_title {
+        font-size: 20px;
+    }
+
+    .client_content_item {
+        display: flex;
+        margin: 2%;
+        width: 35%;
+        margin-left: auto;
+        margin-right: auto;
+        border: 0.5px solid darkred;
+        box-shadow: 1px 2px 3px black;
+        border-radius: 5px;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+    }
+
+        .client_content_item .item2 h1 {
+            font-size: 10px;
+        }
+
+        .client_content_item .item1 img {
+            width: 20px;
+        }
+
+    /* style talent */
+    .talent_title {
+        font-size: 20px;
+        text-align: center;
+        color: darkred;
+        padding-top: 40px;
+    }
+
+    .talent_content {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        /*this centers the text horizontally*/
+        justify-content: center;
+        /*this centers the text vertically*/
+        align-items: center;
+    }
+
+    .talent_content_item {
+        width: 100px;
+        height: 150px;
+        
+        
+        
+        margin: 2%;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+        .talent_content_item .item1 {
+            width: 100%;
+            height: 50%;
+        }
+
+            .talent_content_item .item1 img {
+                width: 100%;
+                border-radius: 10px;
+                height: auto;
+            }
+
+        .talent_content_item .item2 {
+            width: 100%;
+            height: 50%;
+        }
+
+            .talent_content_item .item2 h1 {
+                text-align: center;
+                font-size: 10px;
+                top: 20%;
+                position: relative;
+            }
 }

@@ -1,14 +1,14 @@
-﻿@model IEnumerable<CtrlS.Models.Blog>
+﻿@model IEnumerable<CtrlS.Models.Event>
 @{
     ViewBag.Title = "CtrlS";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    //git pushed
+     //test
 }
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <script src="~/Content/script.js"></script>
-
     <link rel="stylesheet" href="~/Content/SlideBannerScrollEvent.css">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Công ty TNHH CTRL - S</title>
@@ -138,11 +138,6 @@
                 color: crimson;
                 background: none;
             }
-
-
-
-
-
     </style>
 </head>
 <body>
@@ -151,6 +146,7 @@
     <div class="scroll-up-btn">
         <i class="fas fa-angle-up"></i>
     </div>
+
 
 
     <!-- home section start -->
@@ -176,7 +172,8 @@
                     <p>Công ty kinh doanh trong 2 lĩnh vực</p>
                     <p>1/ Tổ chức cho thuê trang thiết bị sự kiện</p>
                     <p>2/ Tư vấn, thiết kế, xây dựng nhà ở</p>
-                    @Html.ActionLink("Xem thêm", "About", "Home")
+                    @Html.ActionLink("About me", "About")
+                    
                 </div>
             </div>
         </div>
@@ -210,56 +207,40 @@
                 </div>
             </div>
         </div>
+        </div>
     </section>
 
     <!-- sự kiện section start -->
-    <h2 class="title" style="color: crimson ; font-size: 45px; margin-top: 30px;"><b>SỰ KIỆN</b></h2>
-    <div class="main">
-        <section class="event" id="event" style="padding:unset">
+    <section class="event" id="event">
+        <h2 class="title" style="color: crimson ; font-size: 45px; margin-top: 30px;"><b>SỰ KIỆN</b></h2>
+        <div class="main">
+
             <!--cards -->
             @*@foreach (var item in Model)
-                {
-                    <div class="card">
-                        <div class="image">
-                            <img width="300px" ; height="300px;" src="~/Img/@item.ImgName" />
-                        </div>
-
-                        <div class="title">
-                            <h1>@Html.DisplayFor(modelItem => item.Title)
-                        </div>
-                        <div class="des" style="margin-bottom:10px;">
-
-                            <a href="#" style="color:darkred;">Xem Thêm</a>
-                        </div>
+            {
+                <div class="card">
+                    <div class="image">
+                        <img width="300px" ; height="300px;" src="~/Img/@item.ImgName" />
                     </div>
-                }*@
 
-            <div id="event">
-                <header>
-                </header>
-
-                <!-- Each image is 350px by 233px -->
-                <div class="photobanner">
-                    <img class="first" style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-8.jpg" />
-                    <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-9.jpg" />
-                    <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-10.jpg" />
-                    <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-11.jpg" />
-                    <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-12.jpg" />
-                    <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-13.jpg" />
-                    <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-14.jpg" />
-                    <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-15.jpg" />
-                    <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-16.jpg" />
-                    <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-17.jpg" />
-                    <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-18.jpg" />
-                    <img style="width:384px; height:216px;" src="~/Content/Image/About/CtrlS-Profile-19.jpg" />
+                    <div class="title">
+                        <h1>@Html.DisplayFor(modelItem => item.Title)
+                    </div>
+                    <div class="des" style="margin-bottom:10px;">
+                        <a href="#" style="color:darkred;">Xem thêm</a>
+                    </div>
                 </div>
+            }*@
+
+            <div class="photobanner">
+                <img class="first" style="width:0px; height:0px;" src="" />
+                @foreach (var item in Model)
+                {
+                    <img class="center" style="width:384px; height:216px;" src="~/Content/Image/Events/@item.ImgName" />
+                }
             </div>
-
-
-
-
-
-        </section>
+        </div>
+    </section>
         <!-- contact section start -->
 
         <section class="contact" id="contact">
@@ -294,12 +275,6 @@
                         </div>
                     </div>
 
-
-      
-
-
-
-
                     <div class="column right">
                         <div class="text">Nhận tư vấn</div>
                         @using (Html.BeginForm("Create", "Contacts", FormMethod.Post))
@@ -333,9 +308,9 @@
 
             </div>
         </section>
-
-
     </div>
+
+
 </body>
 
 @Html.Partial("footer")
