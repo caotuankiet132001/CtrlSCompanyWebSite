@@ -52,6 +52,45 @@ namespace CtrlS.Controllers
             var videos = db.Videos.Where(m => m.Status != 0).OrderByDescending(x => x.CreateDate).ToList();
             return View(videos);
         }
+        [HttpPost]
+        public ActionResult VideoStock(string filtertype)
+        {
+            var videos = db.Videos.Where(m => m.Status != 0).OrderByDescending(x => x.CreateDate).ToList();
+            switch (filtertype)
+            {
+                case "All":
+                    {
+                        videos = db.Videos.Where(m => m.Status != 0).OrderByDescending(x => x.CreateDate).ToList();
+                        break;
+                    }
+                case "Party":
+                    {
+                        videos = db.Videos.Where(m => m.Status != 0 && m.Type == "Party").ToList();
+                        break;
+                    }
+                case "Ceremony":
+                    {
+                        videos = db.Videos.Where(m => m.Status != 0 && m.Type == "Ceremony").ToList();
+                        break;
+                    }
+                case "Music festival":
+                    {
+                        videos = db.Videos.Where(m => m.Status != 0 && m.Type == "Music Festival").ToList();
+                        break;
+                    }
+                case "Team Building":
+                    {
+                        videos = db.Videos.Where(m => m.Status != 0 && m.Type == "Team Building").ToList();
+                        break;
+                    }
+
+            }
+            if(videos.Count == 0)
+            {
+                TempData["msg"] = "<script>alert('Hiện chưa có video cho loại sự kiện này');</script>";
+            }
+            return View(videos);
+        }
 
         public ActionResult Contact()
         {

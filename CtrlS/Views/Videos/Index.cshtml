@@ -40,6 +40,9 @@
             <th style="width:20%">
                 Link video
             </th>
+            <th>
+                Loại sự kiện
+            </th>
             <th style="width:20%;">
                 Ngày upload
             </th>
@@ -71,6 +74,10 @@
                         <div id="content">
                             @Html.DisplayFor(modelItem => item.Link)
                         </div>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type)
+
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.DateTime)

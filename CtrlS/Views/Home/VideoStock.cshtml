@@ -4,100 +4,82 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/Content/VideoStock.css" />
-    <title>Công ty TNHH CTRL - S</title>
+    <title>Ctrl-S Kho Video</title>
+    <style>
+        #filter {
+            height: 30px;
+            width: 50px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            text-align: center;
+            margin-left: 10px;
+            background-color: white;
+            border: 1px solid
+        }
+
+        form {
+            display: flex;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
+        @Html.Raw(TempData["msg"])
         <div id="dim">
 
         </div>
         <div class="max-width">
             <div class="taskbar">
+
                 <div class="left">
                     <h1>Kho video sự kiện</h1>
                 </div>
-                <div class="right">
-                    <h3>Sắp xếp theo:</h3>
-                    <div class="filterdate">
-                        <select name="filterdate" id="filterdate">
-                            <option value="">Mới nhất trước</option>
-                            <option value="">Cũ nhất trước</option>
-                        </select>
-                    </div>
-                    <div class="filtertype">
-                        <select name="filtertype" id="filtertype">
-                            <option value="">Party</option>
-                            <option value="">Ceremony</option>
-                            <option value="">Music festival</option>
-                            <option value="">Team Building</option>
-                        </select>
-                    </div>
+                <div class="right" style="align-items:end">
+                    @using (Html.BeginForm("VideoStock", "Home"))
+                    {
+                        <div class="filterdate">
+                            @*<select name="filterdate" id="filterdate">
+                                <option value="new">Mới nhất trước</option>
+                                <option value="old">Cũ nhất trước</option>
+                            </select>*@
+                        </div>
+                        <div class="filtertype">
+                            <select name="filtertype" id="filtertype">
+                                <option value="All">Toàn bộ</option>
+                                <option value="Party">Party</option>
+                                <option value="Ceremony">Ceremony</option>
+                                <option value="Music festival">Music festival</option>
+                                <option value="Team Building">Team Building</option>
+                            </select>
+                        </div>
+                        <input id="filter" type="submit" value="Lọc" />
+                    }
                 </div>
             </div>
         </div>
         <div class="max-width">
-            @*<div id="videoselected">
-                <div class="videoframe">
-                    <button onclick="bbb()">X</button>
-                    <iframe src="https://www.youtube.com/embed/YdtBEFK_HgI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-            </div>*@
             <div class="videolist">
                 @foreach (var item in Model)
                 {
-                <div id="videounselect">
-                    <div class="videoframe">
-                        <button id="x" style="display:none" onclick="bbb()">X</button>
-                        <iframe src="@item.Link" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                        <a onclick="aaa()" class="title">Tiêu đề video</a>
+                    <div id="videounselect">
+                        <div class="videoframe">
+                            <button id="x" style="display:none" onclick="bbb()">X</button>
+                            <iframe src="@item.Link" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <a onclick="aaa()" class="title">@item.Title</a>
+                        </div>
                     </div>
-                </div>
-                    
-                
-                }
 
-                @*<div class="videoframe">
-                    <iframe src="https://www.youtube.com/embed/YdtBEFK_HgI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    <a onclick="aaa()" class="title">Tiêu đề video</a>
-                </div>
-                <div class="videoframe">
-                    <iframe src="https://www.youtube.com/embed/YdtBEFK_HgI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    <a onclick="aaa()" class="title">Tiêu đề video</a>
-                </div>
-                <div class="videoframe">
-                    <iframe src="https://www.youtube.com/embed/YdtBEFK_HgI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    <a onclick="aaa()" class="title">Tiêu đề video</a>
-                </div>
-                <div class="videoframe">
-                    <iframe src="https://www.youtube.com/embed/YdtBEFK_HgI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    <a onclick="aaa()" class="title">Tiêu đề video</a>
-                </div>
-                <div class="videoframe">
-                    <iframe src="https://www.youtube.com/embed/YdtBEFK_HgI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    <a onclick="aaa()" class="title">Tiêu đề video</a>
-                </div>
-                <div class="videoframe">
-                    <iframe src="https://www.youtube.com/embed/YdtBEFK_HgI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    <a onclick="aaa()" class="title">Tiêu đề video</a>
-                </div>*@
+
+                }
             </div>
         </div>
     </div>
     <script>
-        //function aaa() {
-        //    var b = document.getElementById("dim");
-        //    var a = document.getElementById("videoselected");
-        //    if (a.style.display === "none") {
-        //        a.style.display = "block";
-        //        b.style.display = "block";
-        //    } else {
-        //        a.style.display = "none"
-        //        b.style.display = "none";
-        //    }
-        //}
+
         function aaa() {
             var b = document.getElementById("dim");
             var a = document.getElementById("videounselect");

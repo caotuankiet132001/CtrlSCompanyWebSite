@@ -55,13 +55,14 @@ namespace CtrlS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(string Title, string Content, string Link, DateTime CreateDate)
+        public ActionResult Create(string Title, string Content, string Link, string Type, DateTime CreateDate)
         {
             if (ModelState.IsValid)
             {
                 Video video = new Video();
                 video.Title = Title;
                 video.Content = Content;
+                video.Type = Type;
                 video.Link = Link;
                 video.DateTime = DateTime.Now;
                 video.DateTime2 = DateTime.Now;
