@@ -1,0 +1,90 @@
+﻿@model CtrlS.Models.Video
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout_admin.cshtml";
+}
+
+<head>
+    <style>
+        .dl-horizontal {
+            font-size: 15px;
+            margin-left: 500px;
+            margin-top: 50px;
+        }
+
+        .btn:not(:disabled):not(.disabled) {
+            margin-left: 700px;
+            margin-top: 10px;
+            font-family: 'Varela Round', sans-serif;
+            font-size: 15px;
+        }
+
+            .btn:not(:disabled):not(.disabled):hover {
+                color: white;
+                background-color: darkred;
+            }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center; color:darkred; font-weight: bold; margin-top:40px; font-size:40px;">XÓA VIDEO</h2>
+
+    <div>
+
+        <hr />
+        <dl class="dl-horizontal">
+
+
+            <dt>
+                @Html.DisplayName("Tiêu đề video")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Nội dung")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Content)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Link")
+            </dt>
+
+            <dd>
+                <div id="content">
+                @Html.DisplayFor(model => model.Link)
+                     </div>
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Ngày tạo")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateTime)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <input type="submit" value="Delete" class="btn btn-default" />
+
+            <div class="form-actions no-color" style="margin-left: 550px; font-family: 'Varela Round', sans-serif; font-size:15px;">
+
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+
+
+
+
+

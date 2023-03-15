@@ -47,7 +47,11 @@ namespace CtrlS.Controllers
             dy.Talents = GetTalents();
             return View(dy);
         }
-
+        public ActionResult VideoStock()
+        {
+            var videos = db.Videos.Where(m => m.Status != 0).OrderByDescending(x => x.CreateDate).ToList();
+            return View(videos);
+        }
 
         public ActionResult Contact()
         {
