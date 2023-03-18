@@ -255,12 +255,15 @@
                 <div class="slideshow-container">
                     @foreach (var item in Model)
                     {
-                        <div class="mySlides1 fade">
-                            <img class="center" style="width: 100%;" src="~/Content/Image/Events/@item.ImgName" />
-                        </div>
-                        <div style="text-align:center; margin-top: -20px;display:none;">
-                            <span class="dot1"></span>
-                        </div>
+                        if (item.Type == "event")
+                        {
+                            <div class="mySlides1 fade">
+                                <img class="center" style="width: 100%;" src="~/Content/Image/Events/@item.ImgName" />
+                            </div>
+                            <div style="text-align:center; margin-top: -20px;display:none;">
+                                <span class="dot1"></span>
+                            </div>
+                        }
                     }
                 </div>
                 @*</div>*@

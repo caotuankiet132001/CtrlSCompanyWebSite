@@ -1,0 +1,165 @@
+﻿@model CtrlS.Models.Video
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout_admin.cshtml";
+}
+
+<head>
+    <style>
+/*
+        form input, form textarea, form select, form button {
+            border: 0;
+            outline: 0;
+            padding: 1em;
+            -moz-border-radius: 8px;
+            -webkit-border-radius: 8px;
+            border-radius: 8px;
+            display: block;
+            width: 100%;
+            margin-top: 1em;
+            font-family: 'Merriweather', sans-serif;
+            -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            resize: none;
+        }
+
+            form input:focus, form textarea:focus {
+                -moz-box-shadow: 0 0px 2px #e74c3c !important;
+                -webkit-box-shadow: 0 0px 2px #e74c3c !important;
+                box-shadow: 0 0px 2px #e74c3c !important;
+            }
+
+        form #input-submit {
+            color: white;
+            background: #e74c3c;
+            cursor: pointer;
+        }
+
+            form #input-submit:hover {
+                -moz-box-shadow: 0 1px 1px 1px rgba(170, 170, 170, 0.6);
+                -webkit-box-shadow: 0 1px 1px 1px rgba(170, 170, 170, 0.6);
+                box-shadow: 0 1px 1px 1px rgba(170, 170, 170, 0.6);
+            }
+
+        form textarea {
+            height: 126px;
+        }*/
+
+        .form-horizontal .form-group {
+            margin-left: 450px;
+        }
+
+        .col-md-2 {
+            font-size: 15px;
+        }
+
+        input[type="file"] {
+            display: block;
+            margin-left: 200px;
+            font-size: 15px;
+        }
+
+        .btn:not(:disabled):not(.disabled) {
+            margin-left: 80px;
+            margin-top: 10px;
+            font-family: 'Varela Round', sans-serif;
+            font-size: 15px;
+        }
+
+            .btn:not(:disabled):not(.disabled):hover {
+                color: white;
+                
+            }
+
+        textarea {
+            width: 1000px;
+            resize: both;
+            font-size: 15px;
+        }
+
+        .form-horizontal {
+            width: 100%;
+        }
+
+        .max-width {
+            width: 1300px;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="max-width">
+        <h2 style="text-align:center; color:darkred; font-weight: bold; margin-top:40px; font-size:40px;">Thêm Videos Mới </h2>
+        @Html.Raw(TempData["msg"])
+        @using (Html.BeginForm("Create", "Videos", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {
+            @Html.HiddenFor(model => model.DateTime)
+            @Html.HiddenFor(model => model.DateTime2)
+            @Html.HiddenFor(model => model.Status)
+            @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label("Tiêu đề", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Nội dung", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Ngày tổ chức sự kiện", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input id="CreateDate" type="datetime-local" name="CreateDate" />
+                @Html.ValidationMessageFor(model => model.CreateDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Loại sự kiện", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="Type" id="Type">
+                    <option value="Party">Party</option>
+                    <option value="Ceremony">Ceremony</option>
+                    <option value="Music festival">Music festival</option>
+                    <option value="Team Building">Team Building</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Link", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Link, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Link, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+        }
+
+        <div style="margin-left: 550px; font-family: 'Varela Round', sans-serif; font-size:15px;">
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+
+</body>
+
+
+
+

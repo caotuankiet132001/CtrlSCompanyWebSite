@@ -1,10 +1,9 @@
-﻿@model IEnumerable<CtrlS.Models.Event>
+﻿@model IEnumerable<CtrlS.Models.Video>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout_admin.cshtml";
 }
-
 
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
@@ -20,7 +19,7 @@
         }
     </style>
 </head>
-<h2 style="text-align:center; color:darkred; font-weight: bold; margin-top:40px; font-size:40px;">DANH SÁCH EVENTS </h2>
+<h2 style="text-align:center; color:darkred; font-weight: bold; margin-top:40px; font-size:40px;">DANH SÁCH VIDEOS </h2>
 <p style="margin-left:150px;">
     <i class="fa-solid fa-file-pen">
 
@@ -33,63 +32,68 @@
 
         <tr style="background-color:black; color:white;">
             <th>
-                Nội dung
+                Tiêu đề video
             </th>
             <th>
-                Hình ảnh
+                Nội dung video
             </th>
             <th style="width:20%">
-                Tên file ảnh
+                Link video
             </th>
             <th>
-                Ngày tạo
+                Loại sự kiện
+            </th>
+            <th style="width:20%;">
+                Ngày upload
+            </th>
+            <th style="width:20%;">
+                Ngày tổ chức
             </th>
             <th>
-                Loại
-            </th>
-            <th>
-                Trạng thái
-            </th>
-            <th width="10%">
                 Chức năng
             </th>
+            <th width="10%">
+                Trạng thái
+            </th>
         </tr>
-            @foreach (var item in Model)
-            {
+
+        @foreach (var item in Model)
+        {
+            <tbody>
                 <tr>
+
                     <td>
-                        @Html.DisplayFor(modelItem => item.Content)
+                        @Html.DisplayFor(modelItem => item.Title)
                     </td>
                     <td>
-                        @if (item.Type == "event")
-                        {
-                            <img src="~/Content/Image/Events/@item.ImgName" width="100" height="auto" />
-
-                        }
-                        else if (item.Type == "banner")
-                        {
-                            <img src="~/Content/Image/Banners/@item.ImgName" width="100" height="auto" />
-
-                        }
-                        else
-                        {
-                            <img src="~/Content/Image/Events/@item.ImgName" width="100" height="auto" />
-
-                        }
+                        <div id="content">
+                            @Html.DisplayFor(modelItem => item.Content)
+                        </div>
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ImgName)
+                        <div id="content">
+                            @Html.DisplayFor(modelItem => item.Link)
+                        </div>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type)
+
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.DateTime)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Type)
+                        @Html.DisplayFor(modelItem => item.CreateDate)
+                    </td>
+                    <td>
+                        @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |*@
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
                     </td>
                     <td>
                         @if (item.Status == 0)
                         {
-                            <a href="@Url.Action("Status", "Events", new { @id = item.Id })"
+                            <a href="@Url.Action("Status", "Videos", new { @id = item.Id })"
                                class="btn btn-sm btn-warning"
                                style="width:70px;height:30px;stroke:azure;font-size:18px">
                                 Off
@@ -97,18 +101,16 @@
                         }
                         else if (item.Status == 1)
                         {
-                            <a href="@Url.Action("Status", "Events", new { @id = item.Id })"
+                            <a href="@Url.Action("Status", "Videos", new { @id = item.Id })"
                                class="btn btn-sm btn-success"
                                style="width:70px;height:30px;stroke:azure;font-size:18px">
                                 On
                             </a>
                         }
                     </td>
-                    <td>
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                    </td>
                 </tr>
-            }
+            </tbody>
+        }
 
-        </table>
+    </table>
 </div>

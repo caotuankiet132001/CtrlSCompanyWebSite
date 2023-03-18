@@ -25,5 +25,7 @@ namespace CtrlS.Models
         public System.Data.Entity.DbSet<CtrlS.Models.Event> Events { get; set; }
 
         public System.Data.Entity.DbSet<CtrlS.Models.Video> Videos { get; set; }
+
+        public System.Data.Entity.DbSet<CtrlS.Models.BlogEvent> BlogEvents { get; set; }
     }
 }

@@ -129,6 +129,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BlogEventsController.cs" />
     <Compile Include="Controllers\BlogsController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
@@ -143,6 +144,7 @@
     <Compile Include="Helper\CustomAuthorizeAttribute.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Blog.cs" />
+    <Compile Include="Models\BlogEvent.cs" />
     <Compile Include="Models\CateBlog.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Contact.cs" />
@@ -2407,6 +2409,11 @@
     <Content Include="Views\Videos\Edit.cshtml" />
     <Content Include="Views\Videos\Index.cshtml" />
     <Content Include="Views\Home\VideoStock.cshtml" />
+    <Content Include="Views\BlogEvents\Create.cshtml" />
+    <Content Include="Views\BlogEvents\Delete.cshtml" />
+    <Content Include="Views\BlogEvents\Details.cshtml" />
+    <Content Include="Views\BlogEvents\Edit.cshtml" />
+    <Content Include="Views\BlogEvents\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

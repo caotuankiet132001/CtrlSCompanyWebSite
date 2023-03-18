@@ -3,15 +3,16 @@
     ViewBag.Title = "CtrlS";
     Layout = "~/Views/Shared/_Layout.cshtml";
     //git pushed
-     //test
+    //test
 }
 <head>
+    <link href="~/Content/Homeslideshow.scss" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <script src="~/Content/script.js"></script>
     <link rel="stylesheet" href="~/Content/SlideBannerScrollEvent.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Công ty TNHH CTRL - S</title>
+    <title>Tổ chức sự kiện CTRL-S</title>
     <link rel="stylesheet" href="~/Content/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -141,20 +142,48 @@
     </style>
 </head>
 <body>
-    @Html.Partial("Layout")
+    @*@Html.Partial("Layout")*@
     @Html.Raw(TempData["contact"])
     <div class="scroll-up-btn">
         <i class="fas fa-angle-up"></i>
     </div>
 
-
-
     <!-- home section start -->
     <section class="home" id="home">
         <div class="max-width">
-            <div class="home-content">
+            <div class="slideshow-container">
+                @foreach (var item in Model)
+                {
+                    if (item.Type == "banner")
+                    {
+                        <div class="mySlides fade">
+                            <img src="~/Content/Image/Banners/@item.ImgName" style="width:100%">
+                        </div>
+                        <div style="text-align:center; margin-top: -20px;display:none;">
+                            <span class="dot"></span>
+                        </div>
+                    }
+                }
+                @*<div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="~/Content/Image/Events/CtrlS-Profile-1.jpg" style="width:100%">
+            <div class="text"></div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="~/Content/Image/Events/CtrlS-Profile-2.jpg" style="width:100%">
+            <div class="text"></div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="~/Content/Image/Events/CtrlS-Profile-4.jpg" style="width:100%">
+            <div class="text"></div>
+        </div>*@
 
             </div>
+
         </div>
     </section>
 
@@ -173,7 +202,7 @@
                     <p>1/ Tổ chức cho thuê trang thiết bị sự kiện</p>
                     <p>2/ Tư vấn, thiết kế, xây dựng nhà ở</p>
                     @Html.ActionLink("About me", "About")
-                    
+
                 </div>
             </div>
         </div>
@@ -200,116 +229,156 @@
                 </div>
                 <div class="card1">
                     <div class="box">
-                        <i class="fa-solid fa-file-pen"></i>
-                        <div class="text"> Tư vấn</div>
-                        <p>Tư vấn, thiết kế, xây dựng nhà ở theo yêu cầu</p>
+                        <i class="fa-solid fa-camera"></i>
+                        <div class="text">Media</div>
+                        <p>Quay, chụp, thiết kế, dựng video theo yêu cầu</p>
                     </div>
                 </div>
             </div>
         </div>
         </div>
     </section>
+    <section class="video" id="video">
+        <div class="max-width">
+            <iframe src="https://www.youtube.com/embed/Ly6nVEAtA8o?controls=1" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+       
 
+    </section>
     <!-- sự kiện section start -->
     <section class="event" id="event">
         <h2 class="title" style="color: crimson ; font-size: 45px; margin-top: 30px;"><b>SỰ KIỆN</b></h2>
         <div class="main">
-
-            <!--cards -->
-            @*@foreach (var item in Model)
-            {
-                <div class="card">
-                    <div class="image">
-                        <img width="300px" ; height="300px;" src="~/Img/@item.ImgName" />
-                    </div>
-
-                    <div class="title">
-                        <h1>@Html.DisplayFor(modelItem => item.Title)
-                    </div>
-                    <div class="des" style="margin-bottom:10px;">
-                        <a href="#" style="color:darkred;">Xem thêm</a>
-                    </div>
+            <div class="max-width">
+                @*<div class="photobanner">
+                    <img class="first" style="width:0px; height:0px;" src="" />*@
+                <div class="slideshow-container">
+                    @foreach (var item in Model)
+                    {
+                        <div class="mySlides1 fade">
+                            <img class="center" style="width: 100%;" src="~/Content/Image/Events/@item.ImgName" />
+                        </div>
+                        <div style="text-align:center; margin-top: -20px;display:none;">
+                            <span class="dot1"></span>
+                        </div>
+                    }
                 </div>
-            }*@
-
-            <div class="photobanner">
-                <img class="first" style="width:0px; height:0px;" src="" />
-                @foreach (var item in Model)
-                {
-                    <img class="center" style="width:384px; height:216px;" src="~/Content/Image/Events/@item.ImgName" />
-                }
+                @*</div>*@
             </div>
+            
         </div>
     </section>
-        <!-- contact section start -->
+    <!-- contact section start -->
 
-        <section class="contact" id="contact">
-            <div class="max-width">
-                <h2 class="title">Contact me</h2>
-                <div class="contact-content">
-                    <div class="column left">
-                        <div class="text">Get in Touch</div>
-                        <p>Lưu trữ giá trị của bạn, liên hệ ngay để nhận báo giá ngay tại đây!</p>
-                        <div class="icons">
-                            <div class="row">
-                                <i class="fas fa-user"></i>
-                                <div class="info">
-                                    <div class="head">Name</div>
-                                    <div class="sub-title">Trương Phan Quốc Bảo</div>
-                                </div>
+    <section class="contact" id="contact">
+        <div class="max-width">
+            <h2 class="title">Contact me</h2>
+            <div class="contact-content">
+                <div class="column left">
+                    <div class="text">Get in Touch</div>
+                    <p>Lưu trữ giá trị của bạn, liên hệ ngay để nhận báo giá ngay tại đây!</p>
+                    <div class="icons">
+                        <div class="row">
+                            <i class="fas fa-user"></i>
+                            <div class="info">
+                                <div class="head">Name</div>
+                                <div class="sub-title">Trương Phan Quốc Bảo</div>
                             </div>
-                            <div class="row">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <div class="info">
-                                    <div class="head">Address</div>
-                                    <div class="sub-title">1590/14 Phạm Thế Hiển Quận 8, TP.HCM</div>
-                                </div>
+                        </div>
+                        <div class="row">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="info">
+                                <div class="head">Address</div>
+                                <div class="sub-title">1590/14 Phạm Thế Hiển Quận 8, TP.HCM</div>
                             </div>
-                            <div class="row">
-                                <i class="fas fa-envelope"></i>
-                                <div class="info">
-                                    <div class="head">Email</div>
-                                    <div class="sub-title">CtrlScompany@gmail.com</div>
-                                </div>
+                        </div>
+                        <div class="row">
+                            <i class="fas fa-envelope"></i>
+                            <div class="info">
+                                <div class="head">Email</div>
+                                <div class="sub-title">CtrlScompany@gmail.com</div>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="column right">
-                        <div class="text">Nhận tư vấn</div>
-                        @using (Html.BeginForm("Create", "Contacts", FormMethod.Post))
-                        {
-                            <form action="#">
-                                <div class="fields">
-                                    <div class="field name">
-                                        <input type="text" name="Name" placeholder="Name" required>
-                                    </div>
-                                    <div class="field email">
-                                        <input type="email" name="Email" placeholder="Email" required>
-                                    </div>
+                <div class="column right">
+                    <div class="text">Nhận tư vấn</div>
+                    @using (Html.BeginForm("Create", "Contacts", FormMethod.Post))
+                    {
+                        <form action="#">
+                            <div class="fields">
+                                <div class="field name">
+                                    <input type="text" name="Name" placeholder="Name" required>
                                 </div>
-                                <div class="field">
-                                    <input type="text" name="Subject" placeholder="Subject" required>
+                                <div class="field email">
+                                    <input type="email" name="Email" placeholder="Email" required>
                                 </div>
-                                <div class="field textarea">
-                                    <textarea cols="30" rows="10" name="Message" placeholder="Message.." required></textarea>
-                                </div>
-                                <div class="field">
-                                    <input type="text" name="PhoneNumber" placeholder="Number" required>
-                                </div>
-                                <div class="button-area">
-                                    <button type="submit">Gửi</button>
-                                </div>
-                            </form>
-                        }
-                    </div>
-
+                            </div>
+                            <div class="field">
+                                <input type="text" name="Subject" placeholder="Subject" required>
+                            </div>
+                            <div class="field textarea">
+                                <textarea cols="30" rows="10" name="Message" placeholder="Message.." required></textarea>
+                            </div>
+                            <div class="field">
+                                <input type="text" name="PhoneNumber" placeholder="Number" required>
+                            </div>
+                            <div class="button-area">
+                                <button type="submit">Gửi</button>
+                            </div>
+                        </form>
+                    }
                 </div>
 
             </div>
-        </section>
-    </div>
 
+        </div>
+    </section>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            setTimeout(showSlides, 2000);
+             // Change image every 2 seconds
+        }
+
+        let slideIndex1 = 0;
+        showSlides1();
+
+        function showSlides1() {
+            let i;
+            let slides1 = document.getElementsByClassName("mySlides1");
+            let dots1 = document.getElementsByClassName("dot1");
+            for (i = 0; i < slides1.length; i++) {
+                slides1[i].style.display = "none";
+            }
+            slideIndex1++;
+            if (slideIndex1 > slides1.length) { slideIndex1 = 1 }
+            for (i = 0; i < dots1.length; i++) {
+                dots1[i].className = dots1[i].className.replace(" active", "");
+            }
+            slides1[slideIndex1 - 1].style.display = "block";
+            dots1[slideIndex1 - 1].className += " active";
+            setTimeout(showSlides1, 2000);
+            // Change image every 2 seconds
+        }
+    </script>
 
 </body>
 

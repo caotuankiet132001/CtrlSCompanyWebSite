@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Công ty TNHH CTRL - S</title>
+    <title>Tổ chức sự kiện CTRL-S</title>
     <link rel="stylesheet" href="~/Content/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -16,132 +16,22 @@
     <link href="./your-path-to-fontawesome/css/solid.css" rel="stylesheet">
     <script src="~/Content/script.js"></script>
     <style>
-        /* contact section styling */
-        /*.contact .title::after {
-            content: "get in touch";
-        }
-
-        .contact .contact-content .column {
-            width: calc(50% - 30px);
-        }
-
-        .contact .contact-content .text {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .contact .contact-content .left p {
-            text-align: justify;
-        }
-
-        .contact .contact-content .left .icons {
-            margin: 10px 0;
-        }
-
-        .contact .contact-content .row {
-            display: flex;
-            height: 65px;
-            align-items: center;
-        }
-
-            .contact .contact-content .row .info {
-                margin-left: 30px;
-            }
-
-            .contact .contact-content .row i {
-                font-size: 25px;
-                color: crimson;
-            }
-
-        .contact .contact-content .info .head {
-            font-weight: 500;
-        }
-
-        .contact .contact-content .info .sub-title {
-            color: #333;
-        }
-
-        .contact .right form .fields {
-            display: flex;
-        }
-
-            .contact .right form .field,
-            .contact .right form .fields .field {
-                height: 45px;
-                width: 100%;
-                margin-bottom: 15px;
-            }
-
-        .contact .right form .textarea {
-            height: 80px;
-            width: 100%;
-        }
-
-        .contact .right form .name {
-            margin-right: 10px;
-        }
-
-        .contact .right form .field input,
-        .contact .right form .textarea textarea {
-            height: 100%;
-            width: 100%;
-            border: 1px solid lightgrey;
-            border-radius: 6px;
-            outline: none;
-            padding: 0 15px;
-            font-size: 17px;
-            font-family: 'Fz Albula',sans-serif;
-            transition: all 0.3s ease;
-        }
-
-            .contact .right form .field input:focus,
-            .contact .right form .textarea textarea:focus {
-                border-color: #b3b3b3;
-            }
-
-        .contact .right form .textarea textarea {
-            padding-top: 10px;
-            resize: none;
-        }
-
-        .contact .right form .button-area {
-            display: flex;
-            align-items: center;
-        }
-
-        .right form .button-area button {
-            color: #fff;
-            display: block;
-            width: 160px !important;
-            height: 45px;
-            outline: none;
-            font-size: 18px;
-            font-weight: 500;
-            border-radius: 6px;
-            cursor: pointer;
-            flex-wrap: nowrap;
-            background: crimson;
-            border: 2px solid crimson;
-            transition: all 0.3s ease;
-        }
-
-            .right form .button-area button:hover {
-                color: crimson;
-                background: none;
-            }*/
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="max-width">
-            <div class="logo"><a href="#">Ctrl<span>S</span></a></div>
+            <div class="logo">
+            @*<a href="#">Ctrl<span>S</span></a>*@
+                <a href="#"><img src="~/Content/Image/logo - Copy.png" /> </a>
+            </div>
             <ul class="menu">
                 <li>@Html.ActionLink("Trang chủ", "Index", "Home")</li>
                 <li><a href="#about" class="menu-btn">Thông tin</a></li>
                 <li><a href="#contact" class="menu-btn">Nhận báo giá</a></li>
                 <li><a href="#services" class="menu-btn">Dịch vụ</a></li>
                 <li><a href="#event" class="menu-btn">Sự kiện</a></li>
+                <li>@Html.ActionLink("Videos", "VideoStock", "Home")</li>
             </ul>
             <div class="menu-btn">
                 <i class="fas fa-bars"></i>
